@@ -1,15 +1,24 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <qrcode-scanner
+    :qrbox="250" 
+    :fps="10" 
+    style="width: 500px;"
+    @result="onScan"
+  />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import QrcodeScanner from './components/QrcodeScanner.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    QrcodeScanner
+  },
+  methods: {
+    onScan (decodedText, decodedResult) {
+      console.log(decodedText, decodedResult)
+    }
   }
 }
 </script>
